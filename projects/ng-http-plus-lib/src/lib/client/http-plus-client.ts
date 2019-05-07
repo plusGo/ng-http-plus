@@ -129,7 +129,7 @@ export class HttpPlusClient {
         this.options.params['extra'] = extra;
       });
 
-    return HttpPlusConstants.CLIENT.request<T>(this.httpPlusMethod, `${this.httpPlusBaseUrl}${this.httpPlusUrl}`, this.options as any) as any;
+    return HttpPlusConstants.CLIENT.request<T>(this.httpPlusMethod, `${this.httpPlusBaseUrl || ''}${this.httpPlusUrl}`, this.options as any) as any;
   }
 
   post<T>(): Observable<T> {

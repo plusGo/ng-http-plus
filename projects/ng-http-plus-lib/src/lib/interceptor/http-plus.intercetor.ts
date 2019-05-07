@@ -14,7 +14,7 @@ import {Observable, throwError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {catchError, map} from 'rxjs/operators';
 import {HttpPlusConstants} from '../model/constants.model';
-import {Optional} from "stream-plus";
+import {Optional} from 'stream-plus';
 import {HttpExtra} from "../model/enums.model";
 
 @Injectable()
@@ -32,8 +32,7 @@ export class HttpPlusInterceptors implements HttpInterceptor {
           params: req.params.delete(HttpExtra.EXTRA)
         })
       });
-
-    HttpPlusConstants.INTERCEPTORS
+    return HttpPlusConstants.INTERCEPTORS
       .filter(item => !!item.request)
       .reduce((httpEvent, item) => {
         return (item.request(httpEvent) || httpEvent);

@@ -10,7 +10,6 @@ export class HttpPlusConfig {
 
   public baseUrl(baseUrl: string, excludes: RegExp[] = []): HttpPlusConfig {
     HttpPlusConstants.GLOBAL_BASE_URL = baseUrl;
-
     HttpPlusConstants.INTERCEPTORS.push({
       request: (request: HttpRequest<any>): HttpRequest<any> => {
         if (/^https?:/.test(request.url)) {
